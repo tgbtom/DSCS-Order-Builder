@@ -1,0 +1,9 @@
+<template>
+    <lightning-layout multiple-rows>
+        <template if:true={products} for:each={products} for:item="product">
+            <lightning-layout-item key={product.Id} size="6" small-device-size="12" medium-device-size="12" large-device-size="6" class="slds-var-p-vertical_small slds-var-p-horizontal_small">
+                <c-product-card product={product} title={product.Name}></c-product-card>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

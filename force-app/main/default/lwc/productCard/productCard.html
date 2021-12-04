@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title={product.Name} class="slds-var-m-bottom_small">
+        <lightning-button slot="actions" label="+" icon-name="utility:cart"></lightning-button>
+        <template if:true={priceListed}>
+           <p class="slds-var-p-horizontal_medium"><lightning-formatted-number value={price} format-style="currency"></lightning-formatted-number></p>
+        </template>
+        <template if:false={priceListed}>
+            <p class="error slds-var-p-horizontal_medium">{priceMessage}</p>
+        </template>
+    </lightning-card>
+</template>

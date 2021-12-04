@@ -1,0 +1,14 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" class="slds-var-p-bottom_small">
+            <c-products-search-form onsearch={handleSearchTermChanged}></c-products-search-form>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <lightning-tabset variant="scoped">
+                <lightning-tab label="Products">
+                    <c-products-list products={products}></c-products-list>
+                </lightning-tab>
+            </lightning-tabset>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
