@@ -1,0 +1,17 @@
+<template>
+  <lightning-layout>
+    <!-- SECTION for the list of product cards in the cart-->
+    <lightning-layout-item>
+      <lightning-card title="Order Cart">
+        <template if:true={products}>
+          <template for:each={products} for:item="product">
+            <c-product-card key={product.Id} product={product}></c-product-card>
+          </template>
+        </template>
+      </lightning-card>
+    </lightning-layout-item>
+
+    <!-- Footer section: summarize order-->
+    <lightning-layout-item></lightning-layout-item>
+  </lightning-layout>
+</template>
