@@ -1,8 +1,7 @@
-import { LightningElement, wire, api } from 'lwc';
-import getAllProducts from '@salesforce/apex/ProductDataService.getAllProducts';
+import { LightningElement, api } from 'lwc';
 
 export default class ProductsList extends LightningElement {
 
-    @api products;
+    products;
 
 }
