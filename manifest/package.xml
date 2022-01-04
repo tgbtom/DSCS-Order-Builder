@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>DSCS_Order_Builder</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Order_Builder</members>
+        <name>CustomTab</name>
+    </types>
+        <types>
+        <members>Order_Builder</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
         <members>*</members>
         <name>LightningMessageChannel</name>
     </types>
