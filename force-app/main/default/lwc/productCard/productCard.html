@@ -1,12 +1,23 @@
 <template>
   <lightning-card title={product.Name} class="slds-var-m-bottom_small">
-    <lightning-button
-      slot="actions"
-      label="+"
-      icon-name="utility:cart"
-      data-value={product.Id}
-      onclick={addToCart}
-    ></lightning-button>
+    <template if:true={forAdding}>
+      <lightning-button
+        slot="actions"
+        label="+"
+        icon-name="utility:cart"
+        data-value={product.Id}
+        onclick={addToCart}
+      ></lightning-button>
+    </template>
+    <template if:false={forAdding}>
+      <lightning-button
+        slot="actions"
+        label="-"
+        icon-name="utility:cart"
+        data-value={product.Id}
+        onclick={removeFromCart}
+      ></lightning-button>
+    </template>
     <template if:true={priceListed}>
       <p class="slds-var-p-horizontal_medium">
         <lightning-formatted-number

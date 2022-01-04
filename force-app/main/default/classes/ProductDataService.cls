@@ -9,10 +9,10 @@ public with sharing class ProductDataService {
     }
 
     @AuraEnabled
-    public static Product2 getProduct(Id productId){
+    public static String getProduct(Id productId){
         Pricebook2 pb = [SELECT Id FROM Pricebook2 WHERE IsStandard = true];
         Product2 prod = [SELECT Id, Name, (SELECT PricebookEntry.UnitPrice FROM PricebookEntries WHERE Pricebook2Id = :pb.Id) FROM Product2 WHERE Id = :productId];
-        return prod;
+        return JSON.serialize(prod);
     }
 
 

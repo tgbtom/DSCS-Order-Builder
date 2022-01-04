@@ -11,6 +11,7 @@ export default class ProductCard extends LightningElement {
     @wire(MessageContext) messageContext;
 
     @api product;
+    @api forAdding = false;
     price;
     priceMessage = PRICE_NOT_LISTED;
     priceListed = false;
@@ -26,7 +27,12 @@ export default class ProductCard extends LightningElement {
 
     addToCart(event){
         const prodId = event.target.dataset.value;
-        publish(this.messageContext, OrderProduct, { recordId: prodId }, {Scope: APPLICATION_SCOPE});
+        publish(this.messageContext, OrderProduct, { recordId: prodId, action: 'add' }, {Scope: APPLICATION_SCOPE});
+    }
+
+    removeFromCart(event){
+        const prodId = event.target.dataset.value;
+        publish(this.messageContext, OrderProduct, { recordId: prodId, action: 'remove' }, {Scope: APPLICATION_SCOPE});
     }
     
 
