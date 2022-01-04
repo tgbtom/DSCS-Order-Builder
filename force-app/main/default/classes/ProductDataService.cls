@@ -5,8 +5,14 @@ public with sharing class ProductDataService {
 		Pricebook2 pb = [SELECT Id FROM Pricebook2 WHERE IsStandard = true];
         String termLike = '%' + term + '%';
 		List<Product2> products = [SELECT Id, Name, (SELECT PricebookEntry.UnitPrice FROM PricebookEntries WHERE Pricebook2Id = :pb.Id) FROM Product2 WHERE Name LIKE :termLike];
-        system.debug(JSON.serialize(products));
         return JSON.serialize(products);
+    }
+
+    @AuraEnabled
+    public static String getProduct(Id productId){
+        Pricebook2 pb = [SELECT Id FROM Pricebook2 WHERE IsStandard = true];
+        Product2 prod = [SELECT Id, Name, (SELECT PricebookEntry.UnitPrice FROM PricebookEntries WHERE Pricebook2Id = :pb.Id) FROM Product2 WHERE Id = :productId];
+        return JSON.serialize(prod);
     }
 
 
